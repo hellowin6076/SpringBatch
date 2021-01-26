@@ -1,0 +1,16 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+  datasource:
+    url: jdbc:mysql://localhost:3306/batchdb
+    username: batchuser
+    password: batchuser
+  batch:
+    initialize-schema: ALWAYS
+    job:
+      enabled: false
