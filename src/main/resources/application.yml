@@ -7,7 +7,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
   datasource:
-    url: jdbc:mysql://localhost:3306/batchdb
+    url: jdbc:mysql://localhost:3306/batchdb?characterEncoding=UTF-8&serverTimezone=UTC
     username: batchuser
     password: batchuser
   batch:

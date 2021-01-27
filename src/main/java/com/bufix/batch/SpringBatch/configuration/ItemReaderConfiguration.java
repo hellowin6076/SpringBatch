@@ -36,7 +36,7 @@ public class ItemReaderConfiguration {
         queryProvider.setFromClause("FROM CONTRACT");
         queryProvider.setSortKeys(sortByCreationDate());
 
-        return null;
+        return queryProvider;
     }
 
     private Map<String, Order> sortByCreationDate(){

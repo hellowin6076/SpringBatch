@@ -21,7 +21,7 @@ public class ItemWriterConfiguration {
     public ItemWriter<ContractHistory> itemWriter(NamedParameterJdbcTemplate jdbcTemplate){
 
         final String INSERT_QUERY = "INSERT INTO CONTRACT_HISTORY (contract_id, holder_name, duration, amount, " +
-                "creation_date, status) VALUES (: contractId, :holderName, :duration, :amount, 'EFFECTIVE')";
+                "creation_date, status) VALUES (:contractId, :holderName, :duration, :amount, :creationDate, 'EFFECTIVE')";
 
         JdbcBatchItemWriter<ContractHistory> itemWriter = new JdbcBatchItemWriter<ContractHistory>(){
             @Override
@@ -32,7 +32,7 @@ public class ItemWriterConfiguration {
             }
         };
 
-        itemWriter.setSql("");
+        itemWriter.setSql(INSERT_QUERY);
         itemWriter.setItemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<>());
         itemWriter.setJdbcTemplate(jdbcTemplate);
         itemWriter.setAssertUpdates(false);
